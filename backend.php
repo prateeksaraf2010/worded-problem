@@ -28,6 +28,8 @@ $dim_ret=$_POST['dim_ret'];
 			$a="";
 	$arg1_series="";$arg2_series="";
 	$argr_series="";
+	$arg1j_series="";$arg2j_series="";
+	$argrj_series="";
 	fseek($file,0);
 	$arg1=$_POST['arg1'];
 	$type1=$_POST['type_arg1'];
@@ -36,6 +38,7 @@ $dim_ret=$_POST['dim_ret'];
 		switch($dim1){
 			case 0:
 				$arg1_series="$type1 $arg1";
+				$arg1j_series="$type1 $arg1";
 				break;
 				
 			case 1:
@@ -44,17 +47,20 @@ $dim_ret=$_POST['dim_ret'];
   if(fgetc($file)=='-');
   {
   $arg1_series="$type1";
+  $arg1j_series="$type1";
+  $arg1_series= $arg1_series." ".$arg1;
   $a=fgetc($file);
   while($a!=';'&&!feof($file))
   {
   
 
   $arg1_series=$arg1_series.$a;
-  
+  $arg1j_series=$arg1j_series.$a;
   $a=fgetc($file);
   }
-  $arg1_series= $arg1_series." ".$arg1;
+  
   }
+    $arg1j_series= $arg1j_series." ".$arg1;
   
  		break;
 		
@@ -68,19 +74,22 @@ $dim_ret=$_POST['dim_ret'];
   if(fgetc($file)=='-');
   {
   $arg1_series="$type1";
+  $arg1j_series="$type1";
+   $arg1_series=$arg1_series." ".$arg1;
   $a=fgetc($file);
   while($a!=';'&&!feof($file))
   {
   
 
   $arg1_series=$arg1_series.$a;
+  $arg1j_series=$arg1j_series.$a;
   
   $a=fgetc($file);
   }
-  $arg1_series=$arg1_series." ".$arg1;
+ 
  
   }
-
+ $arg1j_series=$arg1j_series." ".$arg1;
  		break;
 		
 	}}
@@ -93,6 +102,7 @@ $dim_ret=$_POST['dim_ret'];
 		switch($dim2){
 			case 0:
 				$arg2_series="$type2 $arg2";
+				$arg2j_series="$type2 $arg2";
 				break;
 				
 			case 1:
@@ -101,16 +111,19 @@ $dim_ret=$_POST['dim_ret'];
   if(fgetc($file)=='-');
   {
   $arg2_series="$type2";
+  $arg2j_series="$type2";
+  $arg2_series= $arg2_series." ".$arg2;
   $a=fgetc($file);
   while($a!=';'&&!feof($file))
   {
   
 
   $arg2_series=$arg2_series.$a;
+   $arg2j_series=$arg2j_series.$a;
   
   $a=fgetc($file);
   }
-  $arg2_series= $arg2_series." ".$arg2;
+  $arg2j_series= $arg2j_series." ".$arg2;
   }
   
  		break;
@@ -124,16 +137,19 @@ $dim_ret=$_POST['dim_ret'];
   if(fgetc($file)=='-');
   {
   $arg2_series="$type2";
+    $arg2j_series="$type2";
+	$arg2_series=$arg2_series." ".$arg2;
   $a=fgetc($file);
   while($a!=';'&&!feof($file))
   {
   
 
   $arg2_series=$arg2_series.$a;
+   $arg2j_series=$arg2j_series.$a;
   
   $a=fgetc($file);
   }
-  $arg2_series=$arg2_series." ".$arg2;
+  $arg2j_series=$arg2j_series." ".$arg2;
  
   }
 
@@ -196,9 +212,10 @@ if($return!=null){
 	
 	
 	$arg_list="$arg1_series,$arg2_series";
+	$argj_list="$arg1j_series,$arg2j_series";
 	
 	$c_format="$argr_series$fun_name($arg_list){\n\n//&nbsp;&nbsp;&nbsp;&nbsp;Type your code here\n\n}";
-	$java_format="public class $class_name{\n\n&nbsp;&nbsp;public $return $fun_name($arg_list){\n\n&nbsp;&nbsp;//&nbsp;&nbsp;Type your code here\n\n&nbsp;&nbsp;}\n\n}//end of class";
+	$java_format="public class $class_name{\n\n&nbsp;&nbsp;public $return $fun_name($argj_list){\n\n&nbsp;&nbsp;//&nbsp;&nbsp;Type your code here\n\n&nbsp;&nbsp;}\n\n}//end of class";
    fclose($file);
 	?>
 <!doctype html>

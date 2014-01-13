@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+	<head></head>
+	<body>
+		<div style="margin:20px auto 0px;padding:10px;width:500px;">
+			<form method="post" action="exam.php">
+			<center><h2>Enter Details</h2>
+			<br>
+				<table>
+					<tr>
+						<td><label>Problem statement:</label></td>
+						<td><input type="text" name="statement" ></td>
+					</tr>
+					<tr>
+						<td><label>Name of java Class</label></td>
+						<td><input type="text" name="class_name" ></td>
+					</tr>
+					<tr>
+						<td><label>Name of function</label></td>
+						<td><input type="text" name="fun_name" ></td>
+					</tr>
+					<tr>
+						<td><label>Return type</label></td>
+						<td><select name="return">
+							<option>int</option>
+							<option>float</option>
+							<option>boolean</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><label>No. of argument</label></td>
+						<td><input type="text" name="args" ></td>
+					</tr>
+					<table>
+						<h3> Argument details (maximum 2 are allowed)</h3>
+						<tr>
+							<td><input type="text" placeholder="variable name" name="arg1"></td>
+							<td><select name="type_arg1">
+							<option>int</option>
+							<option>float</option>
+							<option>boolean</option>
+							</select></td>
+							<td><select name="dim1">
+							<option>0</option>
+							<option>1</option>
+							<option>2</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><input type="text" placeholder="variable name" name="arg2"></td>
+							<td><select name="type_arg2">
+							
+							<option>int</option>
+							<option>float</option>
+							<option>boolean</option>
+							</select></td>
+							<td><select name="dim2">
+							
+							<option>0</option>
+							<option>1</option>
+							<option>2</option>
+							</select></td>
+						</tr>
+						
+					</table>
+					
+					
+					<tr>
+						<td><input type="submit" name="submit" required></td>
+					</tr>
+				</table></center>
+			</form>
+		</div>
+	</body>
+</html>

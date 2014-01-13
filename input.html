@@ -1,23 +1,44 @@
 <!Doctype html>
 <html>
-	<head></head>
+	<head>
+	<script>
+function requirefield(field1)
+{
+
+var x=document.forms["contentform"][field1].value;
+
+if (x==null || x=="")
+  {
+  alert("required must be filled out");
+  return false;
+  }
+}
+
+</script>
+<style>
+#asterisk
+{
+  color:red;
+}
+</style>
+	</head>
 	<body>
 		<div style="margin:20px auto 0px;padding:10px;width:500px;">
-			<form method="post" action="backend.php">
+			<form  name="contentform"  method="post" action="backend.php">
 			<center><h2>Enter Details</h2>
 			<br>
 				<table>
 					<tr>
 						<td><label>Problem statement:</label></td>
-						<td><input type="text" name="statement" ></td>
+						<td><input id="stmt" type="text" name="statement" onblur='return requirefield("statement")'  ><td id="asterisk">*</td></td>
 					</tr>
 					<tr>
 						<td><label>Name of java Class</label></td>
-						<td><input type="text" name="class_name" ></td>
+						<td><input type="text" name="class_name"  ></td>
 					</tr>
 					<tr>
 						<td><label>Name of function</label></td>
-						<td><input type="text" name="fun_name" ></td>
+						<td><input type="text" name="fun_name"  ></td>
 					</tr>
 					<tr>
 						<td><label>Return type</label></td>
@@ -76,26 +97,11 @@
 					
 							
 						
-							<tr>
 							
-							<td><label> Suggestion for dim 1 in C</label></td>
-							<td><input type="text" name="suggestfor1c"></td>
-							</td>
-							</tr>
-						
-							<tr>
-							<td><label> Suggestion for dim 2 in C</label></td>
-							<td><input type="text" name="suggestfor2c"></td>
-						
-
-							
-							
-							
-					</tr>
 					
 					<tr>
 					
-						<td><input type="submit" name="submit" required></td>
+						<td><input type="submit" name="submit" value="Submit"></td>
 					</tr>
 				</table></center>
 			</form>

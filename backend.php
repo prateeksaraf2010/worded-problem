@@ -6,22 +6,21 @@ $file=fopen("suggestions.txt","w+");
 	$no_of_args=$_POST['args'];
 	$return=$_POST['return'];
 
-	$add1c=$_POST['suggestfor1c'];
-	$add2c=$_POST['suggestfor2c'];
-	$add1j=$_POST['suggestfor1j'];
-	$add2j=$_POST['suggestfor2j'];
+	$add1=$_POST['suggestfor1c'];
+	$add2=$_POST['suggestfor2c'];
+
 $dim_ret=$_POST['dim_ret'];
-	$add1c="1-".$add1c;
-	$add2c="2-".$add2c;
+	$add1="1-".$add1;
+	$add2="2-".$add2;
 	
 
 		fwrite($file, $add1c);
+		//	fwrite($file,";");
+		//	fwrite($file,$add1j);
 			fwrite($file,";");
-			fwrite($file,$add1j);
-			fwrite($file,"|");
 			fwrite($file, $add2c);
-			fwrite($file,";");
-			fwrite($file,$add2j);
+			//fwrite($file,";");
+			//fwrite($file,$add2j);
 			
 			
   
